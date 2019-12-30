@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_home_app/bloc/theme.bloc.dart';
+import 'package:flutter_smart_home_app/configs/themes.dart';
+import 'package:flutter_smart_home_app/curve-clipper.dart';
 
 void main() => runApp(MyApp());
 
@@ -6,106 +9,415 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+//    SystemChrome.setPreferredOrientations(
+//      [
+//        DeviceOrientation.portraitUp,
+//        DeviceOrientation.portraitDown,
+//      ],
+//    );
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo 2',
+      home: SmartHome(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+Color color = Color(0xffff024a);
+Color color2 = Color(0xfffa3629);
+String img2 =
+    "https://passivehouseplus.ie/media/k2/items/cache/fc5d9d8578a06f6d4c69c78df34d3f3a_XL.jpg?t=-62169984000";
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+class SmartHome extends StatefulWidget {
+  const SmartHome({Key key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _SmartHomeState createState() => _SmartHomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _SmartHomeState extends State<SmartHome>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+  Animation<double> _heightAnimation;
+  Animation<double> _iconSizeAnimation;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+  @override
+  void initState() {
+    super.initState();
+    themeBloc.changeTheme(Themes.smartHome);
+
+    _controller = new AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+
+    _heightAnimation = new Tween(
+      begin: 0.0,
+      end: 220.0,
+    ).animate(
+      new CurvedAnimation(
+        curve: Curves.decelerate,
+        parent: _controller,
+      ),
+    );
+
+    _iconSizeAnimation = new Tween(
+      begin: 10.0,
+      end: 35.0,
+    ).animate(
+      new CurvedAnimation(
+        curve: Curves.easeInOut,
+        parent: _controller,
+      ),
+    );
+
+    _controller.addListener(() {
+      setState(() {});
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: _buildBody(context),
     );
   }
+
+  Widget _buildBody(BuildContext context) {
+    Size media = MediaQuery.of(context).size;
+    return Container(
+      height: media.height,
+      width: media.width,
+      child: Stack(
+        children: <Widget>[
+          ClipPath(
+            clipper: CurveClipper(),
+            child: Container(
+              width: media.width,
+              height: media.height * 0.28,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xffff1e39),
+                    Color(0xffff4125),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+            ),
+          ),
+          // SingleChildScrollView(
+          //   child: Column(
+          //     children: <Widget>[
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //       Text("data"),
+          //     ],
+          //   ),
+          // ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildRoomItem(BoxConstraints constraint, Size media) {
+    return Container();
+  }
+
+  // Widget _buildRoutinesItem(Size media) {
+  //   return Expanded(
+  //     child: Card(
+  //       shape: RoundedRectangleBorder(
+  //         borderRadius: BorderRadius.circular(10),
+  //       ),
+  //       child: Container(
+  //         width: media.width * .6,
+  //         child: ListTile(
+  //           title: Text("10 PM daily"),
+  //           subtitle: Text("SureFeed pet"),
+  //           trailing: CupertinoSwitch(
+  //             onChanged: (bool value) {},
+  //             value: true,
+  //           ),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
+
+  // Widget buildDashboardRow1() {
+  //   return Expanded(
+  //     child: Row(
+  //       children: <Widget>[
+  //         Expanded(
+  //           child: Padding(
+  //             padding: const EdgeInsets.all(10),
+  //             child: Row(
+  //               children: <Widget>[
+  //                 Container(
+  //                   width: 70,
+  //                   decoration: BoxDecoration(
+  //                     image: DecorationImage(
+  //                       image: ExactAssetImage('assets/images/img4.png'),
+  //                       fit: BoxFit.contain,
+  //                     ),
+  //                   ),
+  //                 ),
+  //                 SizedBox(width: 10),
+  //                 Expanded(
+  //                   child: Column(
+  //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //                     crossAxisAlignment: CrossAxisAlignment.start,
+  //                     children: <Widget>[
+  //                       Text(
+  //                         "Front door",
+  //                         style: TextStyle(
+  //                           color: color,
+  //                           fontWeight: FontWeight.bold,
+  //                         ),
+  //                       ),
+  //                       Text(
+  //                         "Locked",
+  //                         style: TextStyle(
+  //                           fontWeight: FontWeight.w500,
+  //                           fontSize: 15,
+  //                         ),
+  //                       ),
+  //                       Container(
+  //                         width: 30,
+  //                         height: 12,
+  //                         padding: const EdgeInsets.all(1.5),
+  //                         decoration: BoxDecoration(
+  //                           borderRadius: BorderRadius.circular(2),
+  //                           border: Border.all(
+  //                             color: Colors.grey,
+  //                             width: 0.5,
+  //                           ),
+  //                         ),
+  //                         child: Padding(
+  //                           padding: const EdgeInsets.only(right: 7),
+  //                           child: Container(
+  //                             decoration: BoxDecoration(
+  //                               color: Color(0xff0ed02d),
+  //                               borderRadius: BorderRadius.circular(2),
+  //                             ),
+  //                           ),
+  //                         ),
+  //                       ),
+  //                     ],
+  //                   ),
+  //                 ),
+  //               ],
+  //             ),
+  //           ),
+  //         ),
+  //         VerticalDivider(
+  //           color: Colors.grey,
+  //           width: 1,
+  //         ),
+  //         Expanded(
+  //           child: Padding(
+  //             padding: const EdgeInsets.all(10),
+  //             child: Row(
+  //               children: <Widget>[
+  //                 Container(
+  //                   width: 75,
+  //                   decoration: BoxDecoration(
+  //                     image: DecorationImage(
+  //                       image: ExactAssetImage('assets/images/img3.png'),
+  //                       fit: BoxFit.cover,
+  //                     ),
+  //                   ),
+  //                 ),
+  //                 SizedBox(width: 10),
+  //                 Expanded(
+  //                   child: Column(
+  //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //                     crossAxisAlignment: CrossAxisAlignment.start,
+  //                     children: <Widget>[
+  //                       Text(
+  //                         "Avg temp",
+  //                         style: TextStyle(
+  //                           color: color,
+  //                           fontWeight: FontWeight.bold,
+  //                         ),
+  //                       ),
+  //                       Text(
+  //                         "21ºC",
+  //                         style: TextStyle(
+  //                           fontWeight: FontWeight.w500,
+  //                           fontSize: 15,
+  //                         ),
+  //                       ),
+  //                       Text(
+  //                         "27ºC outside",
+  //                         style: TextStyle(
+  //                           fontSize: 13.5,
+  //                         ),
+  //                       ),
+  //                     ],
+  //                   ),
+  //                 ),
+  //               ],
+  //             ),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+
+  // Widget buildDashboardRow2() {
+  //   return Expanded(
+  //     child: Row(
+  //       children: <Widget>[
+  //         Expanded(
+  //           child: Padding(
+  //             padding: const EdgeInsets.all(10),
+  //             child: Row(
+  //               children: <Widget>[
+  //                 Container(
+  //                   width: 70,
+  //                   decoration: BoxDecoration(
+  //                     image: DecorationImage(
+  //                       image: ExactAssetImage('assets/images/img1.png'),
+  //                       fit: BoxFit.contain,
+  //                     ),
+  //                   ),
+  //                 ),
+  //                 SizedBox(width: 10),
+  //                 Expanded(
+  //                   child: Column(
+  //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //                     crossAxisAlignment: CrossAxisAlignment.start,
+  //                     children: <Widget>[
+  //                       Text(
+  //                         "Washer",
+  //                         style: TextStyle(
+  //                           color: color,
+  //                           fontWeight: FontWeight.bold,
+  //                         ),
+  //                       ),
+  //                       Text(
+  //                         "1:24",
+  //                         style: TextStyle(
+  //                           fontWeight: FontWeight.w500,
+  //                           fontSize: 15,
+  //                         ),
+  //                       ),
+  //                       Text(
+  //                         "Done 9.30 am",
+  //                         style: TextStyle(
+  //                           fontSize: 13.5,
+  //                         ),
+  //                       ),
+  //                     ],
+  //                   ),
+  //                 ),
+  //               ],
+  //             ),
+  //           ),
+  //         ),
+  //         VerticalDivider(
+  //           color: Colors.grey,
+  //           width: 1,
+  //         ),
+  //         Expanded(
+  //           child: Padding(
+  //             padding: const EdgeInsets.all(10),
+  //             child: Row(
+  //               children: <Widget>[
+  //                 Container(
+  //                   width: 75,
+  //                   decoration: BoxDecoration(
+  //                     image: DecorationImage(
+  //                       image: ExactAssetImage('assets/images/img2.png'),
+  //                       fit: BoxFit.cover,
+  //                     ),
+  //                   ),
+  //                 ),
+  //                 SizedBox(width: 10),
+  //                 Expanded(
+  //                   child: Column(
+  //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //                     crossAxisAlignment: CrossAxisAlignment.start,
+  //                     children: <Widget>[
+  //                       Text(
+  //                         "Devices on",
+  //                         style: TextStyle(
+  //                           color: color,
+  //                           fontWeight: FontWeight.bold,
+  //                         ),
+  //                       ),
+  //                       Text(
+  //                         "8",
+  //                         style: TextStyle(
+  //                           fontWeight: FontWeight.w500,
+  //                           fontSize: 15,
+  //                         ),
+  //                       ),
+  //                       SizedBox(height: 20),
+  //                     ],
+  //                   ),
+  //                 ),
+  //               ],
+  //             ),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }
