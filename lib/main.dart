@@ -128,7 +128,7 @@ class _SmartHomeState extends State<SmartHome>
               right: 25,
             ),
             child: Container(
-              height: 200,
+              height: 215,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -147,7 +147,7 @@ class _SmartHomeState extends State<SmartHome>
                     color: Colors.grey,
                     height: 1,
                   ),
-                  // buildDashboardRow2(),
+                  buildDashboardRow2(),
                 ],
               ),
             ),
@@ -860,105 +860,111 @@ class _SmartHomeState extends State<SmartHome>
     );
   }
 
-  // Widget buildDashboardRow2() {
-  //   return Expanded(
-  //     child: Row(
-  //       children: <Widget>[
-  //         Expanded(
-  //           child: Padding(
-  //             padding: const EdgeInsets.all(10),
-  //             child: Row(
-  //               children: <Widget>[
-  //                 Container(
-  //                   width: 70,
-  //                   decoration: BoxDecoration(
-  //                     image: DecorationImage(
-  //                       image: ExactAssetImage('assets/images/img1.png'),
-  //                       fit: BoxFit.contain,
-  //                     ),
-  //                   ),
-  //                 ),
-  //                 SizedBox(width: 10),
-  //                 Expanded(
-  //                   child: Column(
-  //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //                     crossAxisAlignment: CrossAxisAlignment.start,
-  //                     children: <Widget>[
-  //                       Text(
-  //                         "Washer",
-  //                         style: TextStyle(
-  //                           color: color,
-  //                           fontWeight: FontWeight.bold,
-  //                         ),
-  //                       ),
-  //                       Text(
-  //                         "1:24",
-  //                         style: TextStyle(
-  //                           fontWeight: FontWeight.w500,
-  //                           fontSize: 15,
-  //                         ),
-  //                       ),
-  //                       Text(
-  //                         "Done 9.30 am",
-  //                         style: TextStyle(
-  //                           fontSize: 13.5,
-  //                         ),
-  //                       ),
-  //                     ],
-  //                   ),
-  //                 ),
-  //               ],
-  //             ),
-  //           ),
-  //         ),
-  //         VerticalDivider(
-  //           color: Colors.grey,
-  //           width: 1,
-  //         ),
-  //         Expanded(
-  //           child: Padding(
-  //             padding: const EdgeInsets.all(10),
-  //             child: Row(
-  //               children: <Widget>[
-  //                 Container(
-  //                   width: 75,
-  //                   decoration: BoxDecoration(
-  //                     image: DecorationImage(
-  //                       image: ExactAssetImage('assets/images/img2.png'),
-  //                       fit: BoxFit.cover,
-  //                     ),
-  //                   ),
-  //                 ),
-  //                 SizedBox(width: 10),
-  //                 Expanded(
-  //                   child: Column(
-  //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //                     crossAxisAlignment: CrossAxisAlignment.start,
-  //                     children: <Widget>[
-  //                       Text(
-  //                         "Devices on",
-  //                         style: TextStyle(
-  //                           color: color,
-  //                           fontWeight: FontWeight.bold,
-  //                         ),
-  //                       ),
-  //                       Text(
-  //                         "8",
-  //                         style: TextStyle(
-  //                           fontWeight: FontWeight.w500,
-  //                           fontSize: 15,
-  //                         ),
-  //                       ),
-  //                       SizedBox(height: 20),
-  //                     ],
-  //                   ),
-  //                 ),
-  //               ],
-  //             ),
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
+  Widget buildDashboardRow2() {
+    return Expanded(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    width: 70,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: ExactAssetImage('assets/images/img1.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Washer",
+                          style: TextStyle(
+                            color: color,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          "1:24",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Text(
+                          "Done 9:30 am",
+                          style: TextStyle(
+                            fontSize: 13.5,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          VerticalDivider(
+            color: Colors.grey,
+            width: 1,
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    width: 70,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: ExactAssetImage('assets/images/img2.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Devices on",
+                          style: TextStyle(
+                            color: color,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          "4",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
