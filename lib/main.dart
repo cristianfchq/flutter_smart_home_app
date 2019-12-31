@@ -94,7 +94,7 @@ class _SmartHomeState extends State<SmartHome>
             clipper: CurveClipper(),
             child: Container(
               width: media.width,
-              height: media.height * 0.28,
+              height: media.height * 0.35,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -122,17 +122,33 @@ class _SmartHomeState extends State<SmartHome>
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 90,left: 25,right: 25,),
+            padding: const EdgeInsets.only(
+              top: 90,
+              left: 25,
+              right: 25,
+            ),
             child: Container(
               height: 200,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [BoxShadow(
-                  color: Color(0xffeff2f3),
-                  offset: Offset(1, 5.0),
-                  blurRadius: 3.0,
-                )],
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xffeff2f3),
+                    offset: Offset(1, 5.0),
+                    blurRadius: 3.0,
+                  ),
+                ],
+              ),
+              child: Column(
+                children: <Widget>[
+                  buildDashboardRow1(),
+                  Divider(
+                    color: Colors.grey,
+                    height: 1,
+                  ),
+                  // buildDashboardRow2(),
+                ],
               ),
             ),
           ),
@@ -626,7 +642,6 @@ class _SmartHomeState extends State<SmartHome>
           //   ),
           // ),
 
-          
           // SingleChildScrollView(
           //   child: Column(
           //     children: <Widget>[
@@ -717,127 +732,49 @@ class _SmartHomeState extends State<SmartHome>
   //   );
   // }
 
-  // Widget buildDashboardRow1() {
-  //   return Expanded(
-  //     child: Row(
-  //       children: <Widget>[
-  //         Expanded(
-  //           child: Padding(
-  //             padding: const EdgeInsets.all(10),
-  //             child: Row(
-  //               children: <Widget>[
-  //                 Container(
-  //                   width: 70,
-  //                   decoration: BoxDecoration(
-  //                     image: DecorationImage(
-  //                       image: ExactAssetImage('assets/images/img4.png'),
-  //                       fit: BoxFit.contain,
-  //                     ),
-  //                   ),
-  //                 ),
-  //                 SizedBox(width: 10),
-  //                 Expanded(
-  //                   child: Column(
-  //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //                     crossAxisAlignment: CrossAxisAlignment.start,
-  //                     children: <Widget>[
-  //                       Text(
-  //                         "Front door",
-  //                         style: TextStyle(
-  //                           color: color,
-  //                           fontWeight: FontWeight.bold,
-  //                         ),
-  //                       ),
-  //                       Text(
-  //                         "Locked",
-  //                         style: TextStyle(
-  //                           fontWeight: FontWeight.w500,
-  //                           fontSize: 15,
-  //                         ),
-  //                       ),
-  //                       Container(
-  //                         width: 30,
-  //                         height: 12,
-  //                         padding: const EdgeInsets.all(1.5),
-  //                         decoration: BoxDecoration(
-  //                           borderRadius: BorderRadius.circular(2),
-  //                           border: Border.all(
-  //                             color: Colors.grey,
-  //                             width: 0.5,
-  //                           ),
-  //                         ),
-  //                         child: Padding(
-  //                           padding: const EdgeInsets.only(right: 7),
-  //                           child: Container(
-  //                             decoration: BoxDecoration(
-  //                               color: Color(0xff0ed02d),
-  //                               borderRadius: BorderRadius.circular(2),
-  //                             ),
-  //                           ),
-  //                         ),
-  //                       ),
-  //                     ],
-  //                   ),
-  //                 ),
-  //               ],
-  //             ),
-  //           ),
-  //         ),
-  //         VerticalDivider(
-  //           color: Colors.grey,
-  //           width: 1,
-  //         ),
-  //         Expanded(
-  //           child: Padding(
-  //             padding: const EdgeInsets.all(10),
-  //             child: Row(
-  //               children: <Widget>[
-  //                 Container(
-  //                   width: 75,
-  //                   decoration: BoxDecoration(
-  //                     image: DecorationImage(
-  //                       image: ExactAssetImage('assets/images/img3.png'),
-  //                       fit: BoxFit.cover,
-  //                     ),
-  //                   ),
-  //                 ),
-  //                 SizedBox(width: 10),
-  //                 Expanded(
-  //                   child: Column(
-  //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //                     crossAxisAlignment: CrossAxisAlignment.start,
-  //                     children: <Widget>[
-  //                       Text(
-  //                         "Avg temp",
-  //                         style: TextStyle(
-  //                           color: color,
-  //                           fontWeight: FontWeight.bold,
-  //                         ),
-  //                       ),
-  //                       Text(
-  //                         "21ºC",
-  //                         style: TextStyle(
-  //                           fontWeight: FontWeight.w500,
-  //                           fontSize: 15,
-  //                         ),
-  //                       ),
-  //                       Text(
-  //                         "27ºC outside",
-  //                         style: TextStyle(
-  //                           fontSize: 13.5,
-  //                         ),
-  //                       ),
-  //                     ],
-  //                   ),
-  //                 ),
-  //               ],
-  //             ),
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
+  Widget buildDashboardRow1() {
+    return Expanded(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    width: 70,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: ExactAssetImage('assets/images/img4.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10,),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text("Front door",style:TextStyle(
+                          color: color,
+                          fontWeight: FontWeight.bold,
+                        ),),
+                        Text("Looked",style:TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   // Widget buildDashboardRow2() {
   //   return Expanded(
