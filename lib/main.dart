@@ -109,7 +109,7 @@ class _SmartHomeState extends State<SmartHome>
           ),
           Positioned(
             width: media.width,
-            top: 55,
+            top: 65,
             child: Container(
               alignment: Alignment.center,
               child: Text(
@@ -123,7 +123,7 @@ class _SmartHomeState extends State<SmartHome>
           ),
           Padding(
             padding: const EdgeInsets.only(
-              top: 90,
+              top: 105,
               left: 25,
               right: 25,
             ),
@@ -750,20 +750,104 @@ class _SmartHomeState extends State<SmartHome>
                       ),
                     ),
                   ),
-                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 10,
+                  ),
                   Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text("Front door",style:TextStyle(
-                          color: color,
-                          fontWeight: FontWeight.bold,
-                        ),),
-                        Text("Looked",style:TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                        ),),
+                        Text(
+                          "Front door",
+                          style: TextStyle(
+                            color: color,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          "Looked",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Container(
+                          width: 30,
+                          height: 12,
+                          padding: const EdgeInsets.all(1.5),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(2),
+                            border: Border.all(
+                              color: Colors.grey,
+                              width: 0.5,
+                            ),
+                          ),
+                          child: Container(
+                            padding: const EdgeInsets.only(
+                              right: 7,
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Color(0xff0ed02d),
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          VerticalDivider(
+            width: 1,
+            color: Colors.grey,
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    width: 70,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: ExactAssetImage('assets/images/img3.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "Avg Temp",
+                          style: TextStyle(
+                            color: color,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          "21 °C",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Text(
+                          "27 °C Outside",
+                          style: TextStyle(
+                            fontSize: 13.5,
+                          ),
+                        ),
                       ],
                     ),
                   ),
