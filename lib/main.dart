@@ -107,6 +107,526 @@ class _SmartHomeState extends State<SmartHome>
               ),
             ),
           ),
+          Positioned(
+            width: media.width,
+            top: 55,
+            child: Container(
+              alignment: Alignment.center,
+              child: Text(
+                "Good Morning Cristian",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 90,left: 25,right: 25,),
+            child: Container(
+              height: 200,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [BoxShadow(
+                  color: Color(0xffeff2f3),
+                  offset: Offset(1, 5.0),
+                  blurRadius: 3.0,
+                )],
+              ),
+            ),
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(top: 55,left: 20,right: 20,),
+          //   child: SingleChildScrollView(
+          //                 child: Column(
+          //       children: <Widget>[
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //         Container(
+          //           alignment: Alignment.center,
+          //           child: Text(
+          //             "Good Morning Cristian",
+          //             style: TextStyle(
+          //               color: Colors.blueAccent,
+          //               fontSize: 20,
+          //             ),
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
+
+          
           // SingleChildScrollView(
           //   child: Column(
           //     children: <Widget>[
