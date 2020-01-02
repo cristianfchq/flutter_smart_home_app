@@ -825,6 +825,16 @@ class _SmartHomeState extends State<SmartHome>
           Container(
             height: constraint.maxHeight*0.6,
             width: media.width*0.7,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+              image: DecorationImage(
+                image: AssetImage('assets/images/room.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
           )
         ],
       ),
