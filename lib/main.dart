@@ -233,6 +233,25 @@ class _SmartHomeState extends State<SmartHome>
                             fontWeight: FontWeight.w500,
                           ),
                         ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Container(
+                          height: 200,
+                          child: LayoutBuilder(
+                            builder: (context,constraint){
+                              return ListView(
+                                padding: const EdgeInsets.only(right: 20,),
+                                scrollDirection: Axis.horizontal,
+                                children: <Widget>[
+                                  _buildRoomItem(constraint, media),
+                                  _buildRoomItem(constraint, media),
+                                  _buildRoomItem(constraint, media),
+                                ],
+                              );
+                            },
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -797,7 +816,19 @@ class _SmartHomeState extends State<SmartHome>
   }
 
   Widget _buildRoomItem(BoxConstraints constraint, Size media) {
-    return Container();
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: constraint.maxHeight*0.6,
+            width: media.width*0.7,
+          )
+        ],
+      ),
+    );
   }
 
   Widget _buildRoutinesItem(Size media) {
