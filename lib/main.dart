@@ -133,7 +133,33 @@ class _SmartHomeState extends State<SmartHome>
             ),
           ),
 //
-
+          Container(
+            child: FloatingActionButton(
+              elevation: 0,
+              heroTag: null,
+              backgroundColor: Color(0xffff1e39),
+              child: AnimatedBuilder(
+                animation: _controller,
+                builder: (BuildContext context, Widget child) {
+                  return Transform(
+                    transform:
+                        Matrix4.rotationZ(_controller.value * 0.5 * math.pi),
+                    alignment: FractionalOffset.center,
+                    child: Icon(
+                      _controller.isDismissed ? Icons.add : Icons.close,
+                    ),
+                  );
+                },
+              ),
+              onPressed: () {
+                if (_controller.isDismissed) {
+                  _controller.forward();
+                } else {
+                  _controller.reverse();
+                }
+              },
+            ),
+          ),
 //
           Container(
             height: 80,
@@ -368,7 +394,95 @@ class _SmartHomeState extends State<SmartHome>
           // ),
 
 //
+          //Overlay
+          Positioned(
+            top: 0,
+            child: FadeTransition(
+              opacity: _controller,
+              child: GestureDetector(
+                onTap: () {
+                  _controller.reverse();
+                },
+                child: Container(
+                  width: _heightAnimation.value > 5 ? media.width : 0,
+                  height: _heightAnimation.value > 5 ? media.height : 0,
+                  color: Colors.black54,
+                ),
+              ),
+            ),
+          ),
 
+          Positioned(
+            width: 56, //width of floating btn
+            height: _heightAnimation.value,
+            bottom: -45, //middle of floating btn
+            left: (media.width / 2) - 29,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xffff1e39),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                  bottomLeft: Radius.circular(5),
+                  bottomRight: Radius.circular(5),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 5,
+                  bottom: 30,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () {
+                        print("presionaste 1");
+                      },
+                      child: Visibility(
+                        //prevent error inside animation
+                        visible: _heightAnimation.value > 210,
+                        child: Icon(
+                          Icons.looks_one,
+                          color: Colors.white,
+                          size: _iconSizeAnimation.value,
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        print("presionaste 2");
+                      },
+                      child: Visibility(
+                        //prevent error inside animation
+                        visible: _heightAnimation.value > 210,
+                        child: Icon(
+                          Icons.looks_two,
+                          color: Colors.white,
+                          size: _iconSizeAnimation.value,
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        print("presionaste 3");
+                      },
+                      child: Visibility(
+                        //prevent error inside animation
+                        visible: _heightAnimation.value > 210,
+                        child: Icon(
+                          Icons.looks_3,
+                          color: Colors.white,
+                          size: _iconSizeAnimation.value,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
 //
         ],
       ),
