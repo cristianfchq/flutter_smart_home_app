@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_home_app/bloc/theme.bloc.dart';
 import 'package:flutter_smart_home_app/configs/themes.dart';
@@ -152,21 +153,109 @@ class _SmartHomeState extends State<SmartHome>
               ),
             ),
           ),
+
+          Padding(
+            padding: const EdgeInsets.only(top: 325),
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "\nRutines",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Container(
+                          height: 200,
+                          child: ListView(
+                            padding: const EdgeInsets.only(right: 20),
+                            scrollDirection: Axis.horizontal,
+                            // children: List.generate(4, (_) {
+                            //   return Column(
+                            //     children: <Widget>[
+                            //       _buildRoutinesItem(media),
+                            //       SizedBox(
+                            //         height: 5,
+                            //       ),
+                            //       _buildRoutinesItem(media),
+                            //     ],
+                            //   );
+                            // }),
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  _buildRoutinesItem(media),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  _buildRoutinesItem(media),
+                                ],
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  _buildRoutinesItem(media),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  _buildRoutinesItem(media),
+                                ],
+                              ),
+                              Column(
+                                children: <Widget>[
+                                  _buildRoutinesItem(media),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  _buildRoutinesItem(media),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "Rooms",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
           // Padding(
           //   padding: const EdgeInsets.only(top: 55,left: 20,right: 20,),
           //   child: SingleChildScrollView(
           //                 child: Column(
           //       children: <Widget>[
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
+          // Container(
+          //   alignment: Alignment.center,
+          //   child: Text(
+          //     "Good Morning Cristian",
+          //     style: TextStyle(
+          //       color: Colors.blueAccent,
+          //       fontSize: 20,
+          //     ),
+          //   ),
+          // ),
           //         Container(
           //           alignment: Alignment.center,
           //           child: Text(
@@ -711,26 +800,26 @@ class _SmartHomeState extends State<SmartHome>
     return Container();
   }
 
-  // Widget _buildRoutinesItem(Size media) {
-  //   return Expanded(
-  //     child: Card(
-  //       shape: RoundedRectangleBorder(
-  //         borderRadius: BorderRadius.circular(10),
-  //       ),
-  //       child: Container(
-  //         width: media.width * .6,
-  //         child: ListTile(
-  //           title: Text("10 PM daily"),
-  //           subtitle: Text("SureFeed pet"),
-  //           trailing: CupertinoSwitch(
-  //             onChanged: (bool value) {},
-  //             value: true,
-  //           ),
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
+  Widget _buildRoutinesItem(Size media) {
+    return Expanded(
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Container(
+          width: media.width * .5,
+          child: ListTile(
+            title: Text("10 PM daily"),
+            subtitle: Text("SureFeed pet"),
+            trailing: CupertinoSwitch(
+              onChanged: (bool value) {},
+              value: true,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
   Widget buildDashboardRow1() {
     return Expanded(
