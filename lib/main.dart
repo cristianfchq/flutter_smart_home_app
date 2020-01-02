@@ -835,7 +835,44 @@ class _SmartHomeState extends State<SmartHome>
                 fit: BoxFit.cover,
               ),
             ),
-          )
+          ),
+          SizedBox(height: 5,),
+          Expanded(
+            child: Container(
+              height: constraint.maxHeight,
+              width: media.width*0.7,
+              padding: const EdgeInsets.only(
+                left: 5,
+                right: 5,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(padding: const EdgeInsets.only(left: 5,),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text("Living Room",style: TextStyle(fontSize:15,fontWeight:FontWeight.w500),),
+                      Text("21 °C",style: TextStyle(fontSize:15,fontWeight:FontWeight.w400,color: Colors.grey,),),
+                    ],
+                  ),),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    height: 30,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: ExactAssetImage('assets/images/img6.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
