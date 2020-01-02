@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_home_app/bloc/theme.bloc.dart';
+// import 'package:flutter_smart_home_app/bottom-bar.dart';
 import 'package:flutter_smart_home_app/configs/themes.dart';
 import 'package:flutter_smart_home_app/curve-clipper.dart';
+import 'dart:math' as math;
 
 void main() => runApp(MyApp());
 
@@ -79,8 +81,104 @@ class _SmartHomeState extends State<SmartHome>
 
   @override
   Widget build(BuildContext context) {
+    double itemWidth = MediaQuery.of(context).size.width / 5;
     return Scaffold(
       body: _buildBody(context),
+      bottomNavigationBar: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            height: 80,
+            width: itemWidth,
+            alignment: Alignment.center,
+            child: Ink(
+              child: InkWell(
+                onTap: () {},
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      Icons.home,
+                      color: color,
+                      size: 35,
+                    ),
+                    Text("Home"),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            height: 80,
+            width: itemWidth,
+            alignment: Alignment.center,
+            child: Ink(
+              child: InkWell(
+                onTap: () {
+                  print("hola");
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      Icons.forward_5,
+                      color: Colors.grey,
+                      size: 35,
+                    ),
+                    Text("Routines"),
+                  ],
+                ),
+              ),
+            ),
+          ),
+//
+
+//
+          Container(
+            height: 80,
+            width: itemWidth,
+            alignment: Alignment.center,
+            child: Ink(
+              child: InkWell(
+                onTap: () {},
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      Icons.show_chart,
+                      color: Colors.grey,
+                      size: 35,
+                    ),
+                    Text("Stats"),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            height: 80,
+            width: itemWidth,
+            alignment: Alignment.center,
+            child: Ink(
+              child: InkWell(
+                onTap: () {},
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      Icons.menu,
+                      color: Colors.grey,
+                      size: 35,
+                    ),
+                    Text("More"),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -239,9 +337,11 @@ class _SmartHomeState extends State<SmartHome>
                         Container(
                           height: 200,
                           child: LayoutBuilder(
-                            builder: (context,constraint){
+                            builder: (context, constraint) {
                               return ListView(
-                                padding: const EdgeInsets.only(right: 20,),
+                                padding: const EdgeInsets.only(
+                                  right: 20,
+                                ),
                                 scrollDirection: Axis.horizontal,
                                 children: <Widget>[
                                   _buildRoomItem(constraint, media),
@@ -260,556 +360,16 @@ class _SmartHomeState extends State<SmartHome>
             ),
           ),
 
-          // Padding(
-          //   padding: const EdgeInsets.only(top: 55,left: 20,right: 20,),
-          //   child: SingleChildScrollView(
-          //                 child: Column(
-          //       children: <Widget>[
-          // Container(
-          //   alignment: Alignment.center,
-          //   child: Text(
-          //     "Good Morning Cristian",
-          //     style: TextStyle(
-          //       color: Colors.blueAccent,
-          //       fontSize: 20,
-          //     ),
-          //   ),
-          // ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //         Container(
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Good Morning Cristian",
-          //             style: TextStyle(
-          //               color: Colors.blueAccent,
-          //               fontSize: 20,
-          //             ),
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
+          // Positioned(
+          //   bottom: 0,
+          //   width: media.width,
+          //   height: 70,
+          //   child: BottomBar(),
           // ),
 
-          // SingleChildScrollView(
-          //   child: Column(
-          //     children: <Widget>[
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //       Text("data"),
-          //     ],
-          //   ),
-          // ),
+//
+
+//
         ],
       ),
     );
@@ -823,8 +383,8 @@ class _SmartHomeState extends State<SmartHome>
       child: Column(
         children: <Widget>[
           Container(
-            height: constraint.maxHeight*0.6,
-            width: media.width*0.7,
+            height: constraint.maxHeight * 0.6,
+            width: media.width * 0.7,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(10),
@@ -836,11 +396,13 @@ class _SmartHomeState extends State<SmartHome>
               ),
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(
+            height: 5,
+          ),
           Expanded(
             child: Container(
               height: constraint.maxHeight,
-              width: media.width*0.7,
+              width: media.width * 0.7,
               padding: const EdgeInsets.only(
                 left: 5,
                 right: 5,
@@ -848,14 +410,29 @@ class _SmartHomeState extends State<SmartHome>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(padding: const EdgeInsets.only(left: 5,),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text("Living Room",style: TextStyle(fontSize:15,fontWeight:FontWeight.w500),),
-                      Text("21 °C",style: TextStyle(fontSize:15,fontWeight:FontWeight.w400,color: Colors.grey,),),
-                    ],
-                  ),),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 5,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          "Living Room",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          "21 °C",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   SizedBox(
                     height: 5,
                   ),
