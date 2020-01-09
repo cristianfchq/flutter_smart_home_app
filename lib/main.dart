@@ -283,7 +283,7 @@ class _SmartHomeState extends State<SmartHome>
                 },
                 child: Container(
                   width: _heightAnimation.value > 5 ? media.width : 0,
-                  height: _heightAnimation.value > 5 ? media.width : 0,
+                  height: _heightAnimation.value > 5 ? media.height : 0,
                   color: Colors.black54,
                 ),
               ),
