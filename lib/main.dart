@@ -4,6 +4,7 @@ import 'package:flutter_smart_home_app/bloc/theme.bloc.dart';
 import 'package:flutter_smart_home_app/bottom-bar.dart';
 import 'package:flutter_smart_home_app/configs/themes.dart';
 import 'package:flutter_smart_home_app/curve-clipper.dart';
+import 'dart:math' as math;
 
 //nueva rama (nuevo branch)
 
@@ -270,6 +271,95 @@ class _SmartHomeState extends State<SmartHome>
             width: media.width,
             height: 70,
             child: BottomBar(),
+          ),
+          //overlay
+          Positioned(
+            top: 0,
+            child: FadeTransition(
+              opacity: _controller,
+              child: GestureDetector(
+                onTap: (){
+                  _controller.reverse();
+                },
+                child: Container(
+                  width: _heightAnimation.value > 5 ? media.width : 0,
+                  height: _heightAnimation.value > 5 ? media.width : 0,
+                  color: Colors.black54,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            width: 56,//width of floating btn
+            height: _heightAnimation.value,
+            bottom: 28,//middle of floating btn
+            left: (media.width / 2) - 25,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xffff1e39),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                  bottomLeft: Radius.circular(5),
+                  bottomRight: Radius.circular(5),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 5,bottom: 30,),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Visibility(
+                      //prevent error inside animation
+                      visible: _heightAnimation.value > 210,//prevent error inside animation
+                      child: Icon(
+                        Icons.history,
+                        color: Colors.white,
+                        size: _iconSizeAnimation.value,
+                      ),
+                    ),
+                    Visibility(
+                      //prevent error inside animation
+                      visible: _heightAnimation.value > 160,//prevent error inside animation
+                      child: Icon(
+                        Icons.history,
+                        color: Colors.white,
+                        size: _iconSizeAnimation.value,
+                      ),
+                    ),
+                    Visibility(
+                      //prevent error inside animation
+                      visible: _heightAnimation.value > 90,//prevent error inside animation
+                      child: Icon(
+                        Icons.history,
+                        color: Colors.white,
+                        size: _iconSizeAnimation.value,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 6,
+            left: (media.width / 2) - 25,
+            child: FloatingActionButton(
+              elevation: 0,
+              heroTag: null,
+              backgroundColor: Color(0xffff1e39),
+              child: AnimatedBuilder(
+                animation: _controller,
+                builder: (BuildContext context , Widget child){
+                  return Transform(
+                    transform: Matrix4.rotationZ(_controller.value*0.5*math.pi),
+                    alignment: FractionalOffset.center,
+                    
+                  );
+                },
+              ),
+            ),
           ),
         ],
       ),
