@@ -4,6 +4,8 @@ import 'package:flutter_smart_home_app/bloc/theme.bloc.dart';
 import 'package:flutter_smart_home_app/configs/themes.dart';
 import 'package:flutter_smart_home_app/curve-clipper.dart';
 
+//nueva rama (nuevo branch)
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
