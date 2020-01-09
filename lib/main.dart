@@ -361,6 +361,14 @@ class _SmartHomeState extends State<SmartHome>
                   );
                 },
               ),
+              onPressed: (){
+                if(_controller.isDismissed){
+                  _controller.forward();
+                }
+                else{
+                  _controller.reverse();
+                }
+              },
             ),
           ),
         ],
