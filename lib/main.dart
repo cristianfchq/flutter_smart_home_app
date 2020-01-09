@@ -355,7 +355,9 @@ class _SmartHomeState extends State<SmartHome>
                   return Transform(
                     transform: Matrix4.rotationZ(_controller.value*0.5*math.pi),
                     alignment: FractionalOffset.center,
-                    
+                    child: Icon(
+                      _controller.isDismissed ? Icons.add:Icons.close,
+                    ),
                   );
                 },
               ),
