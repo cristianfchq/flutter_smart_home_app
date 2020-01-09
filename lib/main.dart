@@ -314,7 +314,7 @@ class _SmartHomeState extends State<SmartHome>
                       //prevent error inside animation
                       visible: _heightAnimation.value > 210,//prevent error inside animation
                       child: Icon(
-                        Icons.history,
+                        Icons.refresh,
                         color: Colors.white,
                         size: _iconSizeAnimation.value,
                       ),
@@ -323,7 +323,7 @@ class _SmartHomeState extends State<SmartHome>
                       //prevent error inside animation
                       visible: _heightAnimation.value > 160,//prevent error inside animation
                       child: Icon(
-                        Icons.history,
+                        Icons.tv,
                         color: Colors.white,
                         size: _iconSizeAnimation.value,
                       ),
@@ -332,7 +332,7 @@ class _SmartHomeState extends State<SmartHome>
                       //prevent error inside animation
                       visible: _heightAnimation.value > 90,//prevent error inside animation
                       child: Icon(
-                        Icons.history,
+                        Icons.lightbulb_outline,
                         color: Colors.white,
                         size: _iconSizeAnimation.value,
                       ),
