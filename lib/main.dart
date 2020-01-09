@@ -254,6 +254,9 @@ class _SmartHomeState extends State<SmartHome>
                             },
                           ),
                         ),
+                        SizedBox(
+                          height: 80,
+                        ),
                       ],
                     ),
                   ),
